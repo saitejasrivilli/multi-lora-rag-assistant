@@ -1,6 +1,91 @@
+# 🚀 Multi-LoRA RAG Assistant
+
+This project explores how to build a single LLM that can dynamically adapt to multiple domains using LoRA adapters and embedding-based routing. Instead of training multiple models, I keep one frozen base model and attach lightweight adapters for technical and research tasks. A semantic router selects the appropriate adapter per prompt, and FAISS-based retrieval injects relevant context before generation. The system is deployed on CPU using Hugging Face Spaces to demonstrate production-style inference with minimal resources.
+
+A production-style Large Language Model system featuring **dual LoRA adapters**, **semantic routing**, and **Retrieval-Augmented Generation (RAG)**, deployed on Hugging Face Spaces using **CPU-only inference**.
+
+👉 **Live Demo (Hugging Face Space):**  
+https://huggingface.co/spaces/SaiTejaSrivilli/multi-lora-rag-assistant
 
 ---
 
+## ✨ Key Features
+
+- Qwen2.5-0.5B-Instruct base model (CPU friendly)
+- Dual LoRA adapters:
+  - TECH LoRA (programming + technical reasoning)
+  - RESEARCH LoRA (academic writing + summarization)
+- Embedding-based routing for automatic domain selection
+- Retrieval-Augmented Generation (RAG) using FAISS
+- Short conversation memory
+- Gradio web interface
+- Fully deployed on Hugging Face Spaces (no GPU required)
+
+---
+
+## 🧠 System Architecture
+
+![System Architecture](architecture-diagram.svg)
+
+### End-to-End Flow
+
+1. User Prompt  
+2. Embedding Router (MiniLM)  
+3. Domain Classification (Tech / Research)  
+4. LoRA Adapter Selection  
+5. RAG (FAISS Retrieval)  
+6. Qwen Base Model Generation  
+7. Gradio UI Output  
+
+---
+
+## 🧩 Dual LoRA Design
+
+Instead of training multiple full models, this system uses **two lightweight LoRA adapters** on top of a single frozen base model.
+
+### 🔹 TECH LoRA (`tech_lora/`)
+
+Trained on code instruction data.
+
+Optimized for:
+
+- programming assistance  
+- debugging  
+- algorithms  
+- system design  
+
+Dataset:
+- CodeAlpaca
+
+---
+
+### 🔹 RESEARCH LoRA (`research_lora/`)
+
+Trained on summarization and academic-style data.
+
+Optimized for:
+
+- research explanations  
+- summarization  
+- experiment design  
+- related work writing  
+
+Dataset:
+- CNN/DailyMail
+
+---
+
+### Why Dual LoRA?
+
+This enables:
+
+- multi-domain specialization  
+- minimal memory overhead  
+- fast adapter switching at runtime  
+
+This approach is commonly referred to as **Parameter-Efficient Multi-Domain Specialization**.
+
+ 
 ## 🔧 How It Works
 
 ### 1. Semantic Routing
@@ -124,9 +209,7 @@ Summarization / research-style datasets (academic domain)
 Training notebooks are intentionally kept separate.
 This repository focuses on inference, routing, and deployment.
 
-💼 Resume Summary
-
-Built a modular LLM system using Qwen with dual LoRA adapters, embedding-based routing, FAISS-powered RAG, and Gradio UI. Deployed on Hugging Face Spaces with CPU inference, demonstrating parameter-efficient fine-tuning, semantic specialization, and production-style ML system design.
+ 
 
 🎯 What This Project Demonstrates
 
