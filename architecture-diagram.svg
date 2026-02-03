@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="500" height="700">
+  <style>
+    .box { fill: white; stroke: #333; stroke-width: 1.5; }
+    .text { font-family: Arial, sans-serif; font-size: 14px; fill: #333; text-anchor: middle; dominant-baseline: middle; }
+    .subtitle { font-family: Arial, sans-serif; font-size: 11px; fill: #666; text-anchor: middle; dominant-baseline: middle; }
+    .arrow { fill: #333; stroke: #333; stroke-width: 1.5; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="500" height="700" fill="white"/>
+  
+  <!-- Box 1: User Prompt -->
+  <rect class="box" x="100" y="30" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="55">User Prompt</text>
+  
+  <!-- Arrow 1 -->
+  <line class="arrow" x1="250" y1="80" x2="250" y2="100"/>
+  <polygon class="arrow" points="250,110 244,100 256,100"/>
+  
+  <!-- Box 2: Embedding Router -->
+  <rect class="box" x="100" y="115" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="135">Embedding Router</text>
+  <text class="subtitle" x="250" y="152">(MiniLM)</text>
+  
+  <!-- Arrow 2 -->
+  <line class="arrow" x1="250" y1="165" x2="250" y2="185"/>
+  <polygon class="arrow" points="250,195 244,185 256,185"/>
+  
+  <!-- Box 3: Domain Classification -->
+  <rect class="box" x="100" y="200" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="220">Domain Classification</text>
+  <text class="subtitle" x="250" y="237">(Tech / Research)</text>
+  
+  <!-- Arrow 3 -->
+  <line class="arrow" x1="250" y1="250" x2="250" y2="270"/>
+  <polygon class="arrow" points="250,280 244,270 256,270"/>
+  
+  <!-- Box 4: LoRA Adapter Selection -->
+  <rect class="box" x="100" y="285" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="310">LoRA Adapter Selection</text>
+  
+  <!-- Arrow 4 -->
+  <line class="arrow" x1="250" y1="335" x2="250" y2="355"/>
+  <polygon class="arrow" points="250,365 244,355 256,355"/>
+  
+  <!-- Box 5: RAG -->
+  <rect class="box" x="100" y="370" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="390">RAG</text>
+  <text class="subtitle" x="250" y="407">(FAISS Retrieval)</text>
+  
+  <!-- Arrow 5 -->
+  <line class="arrow" x1="250" y1="420" x2="250" y2="440"/>
+  <polygon class="arrow" points="250,450 244,440 256,440"/>
+  
+  <!-- Box 6: Qwen Base Model Generation -->
+  <rect class="box" x="100" y="455" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="480">Qwen Base Model Generation</text>
+  
+  <!-- Arrow 6 -->
+  <line class="arrow" x1="250" y1="505" x2="250" y2="525"/>
+  <polygon class="arrow" points="250,535 244,525 256,525"/>
+  
+  <!-- Box 7: Gradio UI Output -->
+  <rect class="box" x="100" y="540" width="300" height="50" rx="3"/>
+  <text class="text" x="250" y="565">Gradio UI Output</text>
+  
+</svg>
